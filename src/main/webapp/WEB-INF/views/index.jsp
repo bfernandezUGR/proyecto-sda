@@ -19,18 +19,15 @@
         <span class="navbar-title">Gestión UGR de Servicio Dinámico de Adquisición</span>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Productos y Servicios</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Mi Perfil</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Soporte</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Cerrar Sesión</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/">Catálogo</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/login">Gestión</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container mt-4">
     <h1>Bienvenido a la Gestión UGR de SDA</h1>
-    <p>Visualiza y gestiona productos y servicios de la Universidad de Granada.</p>
+    <p>Accede al <a href="/">catálogo de productos y servicios</a> o <a href="/login">inicia sesión</a> para gestionar la plataforma.</p>
 </div>
 <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>

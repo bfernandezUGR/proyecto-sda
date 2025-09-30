@@ -5,8 +5,10 @@ import com.ugr.sda.service.ProductoService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/productos")
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+@Controller
 public class ProductoController {
     private final ProductoService productoService;
 
@@ -14,17 +16,28 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
-    @GetMapping
+    // Página de inicio: catálogo
+    @GetMapping("/")
+    public String catalogo(Model model) {
+        model.addAttribute("productos", productoService.findAll());
+        return "catalogo";
+    }
+
+    // API REST para gestión (opcional, si se quiere mantener)
+    @GetMapping("/api/productos")
+    @ResponseBody
     public List<Producto> getAll() {
         return productoService.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/api/productos")
+    @ResponseBody
     public Producto create(@RequestBody Producto producto) {
         return productoService.save(producto);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/productos/{id}")
+    @ResponseBody
     public void delete(@PathVariable Long id) {
         productoService.deleteById(id);
     }
