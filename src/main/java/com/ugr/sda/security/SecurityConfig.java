@@ -3,6 +3,8 @@ package com.ugr.sda.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -19,10 +21,13 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                 .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/", true)
             )
             .logout(logout -> logout.permitAll());
         return http.build();
     }
+
+    // Eliminado WebMvcConfigurer y el método addViewControllers
 
     @Bean
     public PasswordEncoder passwordEncoder() {
