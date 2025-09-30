@@ -24,4 +24,16 @@ public class UsuarioService {
     public Usuario findByUsuario(String usuario) {
         return usuarioRepository.findByUsuario(usuario);
     }
+
+    public List<Usuario> buscarPorNombreOApellidos(String texto) {
+        return usuarioRepository.findByNombreContainingIgnoreCaseOrApellidosContainingIgnoreCase(texto, texto);
+    }
+
+    public List<Usuario> filtrarPorRol(String rol) {
+        return usuarioRepository.findByRol(rol);
+    }
+
+    public List<Usuario> filtrarPorActivo(Boolean activo) {
+        return usuarioRepository.findByActivo(activo);
+    }
 }

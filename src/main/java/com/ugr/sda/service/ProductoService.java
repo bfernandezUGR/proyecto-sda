@@ -25,4 +25,16 @@ public class ProductoService {
     public void deleteById(Long id) {
         productoRepository.deleteById(id);
     }
+
+    public List<Producto> buscarPorNombreODescripcion(String texto) {
+        return productoRepository.findByNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(texto, texto);
+    }
+
+    public List<Producto> filtrarPorCategoria(String categoria) {
+        return productoRepository.findByCategoria(categoria);
+    }
+
+    public List<Producto> filtrarPorDisponibilidad(Boolean disponible) {
+        return productoRepository.findByDisponible(disponible);
+    }
 }
